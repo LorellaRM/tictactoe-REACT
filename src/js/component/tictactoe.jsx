@@ -22,11 +22,17 @@ export function Board() {
 	const [boardSquare, setBoardSquare] = useState(Array(9).fill(null));
 	const [xPlayer, setXPlayer] = useState(true);
 	const handleClick = index => {
+		console.log(boardSquare);
+		console.log(calculateWinner(boardSquare));
 		const squares = [...boardSquare];
-		if (calculateWinner(boardSquare) || squares[index]) return;
-		squares[index] = xPlayer ? "X" : "O";
-		setBoardSquare(squares);
-		setXPlayer(!xPlayer);
+		if (calculateWinner(boardSquare) || squares[index]) {
+			return null;
+		} else {
+			squares[index] = xPlayer ? "X" : "O";
+			setBoardSquare(squares);
+			setXPlayer(!xPlayer);
+			console.log("RANITA");
+		}
 	};
 
 	const renderSquare = index => {
@@ -41,7 +47,7 @@ export function Board() {
 	let status = xPlayer ? "X" : "O";
 	const winner = calculateWinner(boardSquare);
 
-	function GetStatus() {
+	function GetStatus(winner) {
 		if (winner) {
 			return "The Winner is: " + winner;
 		} else {
@@ -83,6 +89,7 @@ function calculateWinner(squares) {
 		[0, 4, 8],
 		[2, 4, 6]
 	];
+	console.log(squares);
 
 	for (let i = 0; i < winnerLines.length; i++) {
 		const [a, b, c] = winnerLines[i];
@@ -99,5 +106,5 @@ function calculateWinner(squares) {
 
 Square.propTypes = {
 	value: PropTypes.string,
-	onClick: PropTypes.string
+	onClick: PropTypes.func
 };
