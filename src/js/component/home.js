@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal } from "./initialPage.jsx";
+import { Game } from "./tictactoe.jsx";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
+import { Game } from "./tictactoe.jsx";
 
 export function Modal() {
 	/**
@@ -44,8 +45,11 @@ export function Modal() {
 			</div>
 		</div>
 	) : (
-		<button type="button" onClick={() => setOpened(true)}>
-			Start Over
-		</button>
+		<div>
+			<Game />
+			<button type="button" onClick={() => setOpened(true)}>
+				Start Over
+			</button>
+		</div>
 	);
 }
