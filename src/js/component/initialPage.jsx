@@ -30,15 +30,17 @@ export function Modal() {
 						placeholder="Player O"
 					/>
 				</div>
-				<button
-					className="mr-2 m-3"
-					type="button"
-					onClick={() => setOpened(false)}>
-					<h1>X</h1>
-				</button>
-				<button type="button" onClick={() => setOpened(false)}>
-					<h1>O</h1>
-				</button>
+				<div className="btn">
+					<button
+						className="mr-2 m-3"
+						type="button"
+						onClick={() => setOpened(false)}>
+						<p>X</p>
+					</button>
+					<button type="button" onClick={() => setOpened(false)}>
+						<p>O</p>
+					</button>
+				</div>
 			</div>
 		</div>
 	) : (
